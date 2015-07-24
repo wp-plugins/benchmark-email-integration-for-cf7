@@ -1,0 +1,42 @@
+.cf7-benchmark-ext dt {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.cf7-benchmark-ext dd {
+    margin-left: 0;
+    margin-bottom: 15px;
+}
+
+.cf7-benchmark-ext input[type=text] {
+    width: 50%;
+}
+
+.cf7-benchmark-ext .custom-fields input[type=text] {
+    width: auto;
+}
+
+.custom-fields .template {
+    display: none;
+}
+
+.custom-fields .delete {
+    cursor: pointer;
+}
+
+.cf7-benchmark-ext .spinner {
+    float: none;
+    margin: 0;
+}
+
+.cf7-benchmark-ext .refresh {
+    cursor: pointer;
+    background: url('data:image/gif;base64,R0lGODlhEAAQALMAAPPz87+/vldWVXFwb0pJR6WkpIuKibGxsJmZmebm5X59fD08OszMzGZmZjMzM////yH5BAAAAAAALAAAAAAQABAAAARW8MlJq50F3ZpKc8SxMZ9jOktgMYujBIoLWMCyMFKQTMAuGY7ChWWYEBabx4IwcTSSn6YgKXBMBg4fxzGYBJyXj2oSa2gTH0UFEHMIGlXZcNBaDHDJfAQAOw==') 0 0/20px 20px no-repeat;
+    -webkit-background-size: 20px 20px;
+    display: none;
+    float: none;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}

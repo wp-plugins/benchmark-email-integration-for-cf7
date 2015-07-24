@@ -1,0 +1,60 @@
+<h3><?php echo __('Benchmark Email', 'cf7-benchmark-ext') ?></h3>
+<p><em><?php echo __('Save any changes to your form before completing this tab.', 'cf7-benchmark-ext') ?></em></p>
+
+<dl class="cf7-benchmark-ext">
+    <dt>
+        <label for="cf7-benchmark-apikey"><?php echo __('Benchmark Email API Key', 'cf7-benchmark-ext') ?></label>
+    </dt>
+    <dd>
+        <input type="text" id="cf7-benchmark-apikey" name="cf7-benchmark[apikey]" value="<?php echo isset($options['apikey']) ? esc_attr( $options['apikey'] ) : ''; ?>" />
+        <p class="description"><?php printf(__('Visit your <a href="%s">Benchmark Email Settings</a> for your API key.', 'cf7-benchmark-ext'), 'https://ui.benchmarkemail.com/EditSetting#apikey') ?></p>
+    </dd>
+    <dt>
+        <label for="cf7-benchmark-list"><?php echo __('Benchmark Contact List', 'cf7-benchmark-ext') ?></label>
+    </dt>
+    <dd>
+        <input type="hidden" id="cf7-benchmark-list-id" value="<?php echo isset($options['list']) ? esc_attr( $options['list'] ) : null ?>" />
+        <select id="cf7-benchmark-list" name="cf7-benchmark[list]">
+            <option><?php echo __('Enter your API Key', 'cf7-benchmark-ext') ?></option>
+        </select>
+        <span class="refresh"></span>
+        <span class="spinner"></span>
+        <p class="error-message" style="display: none">There was an error fetching your contact lists.</p>
+    </dd>
+    <dt>
+        <label for="cf7-benchmark-email"><?php echo __('Email Attribute', 'cf7-benchmark-ext') ?></label>
+    </dt>
+    <dd>
+        <?php echo $this->createSelect($args->collect_mail_tags(), isset($options['email']) ? esc_attr( $options['email'] ) : null, 'email') ?>
+    </dd>
+    <dt>
+        <label for="cf7-benchmark-optin"><?php echo __('Double Opt-In', 'cf7-benchmark-ext') ?></label>
+    </dt>
+    <dd>
+        <input type="hidden" name="cf7-benchmark[optin]" value="0" />
+        <input type="checkbox" name="cf7-benchmark[optin]" id="cf7-benchmark-optin" value="1" <?php echo !empty($options['optin']) ? 'checked' : '' ?> /> Yes
+        <p class="description"><?php echo __('The contact will receive a confirmation email from Benchmark before adding them to your contact list.', 'cf7-benchmark-ext') ?></p>
+    </dd>
+    <dt>
+        <label><?php echo __('Custom Fields', 'cf7-benchmark-ext') ?> <span>[<a href="#" id="add"><?php echo __('Add', 'cf7-benchmark-ext') ?></a>]</span></label>
+    </dt>
+    <dd class="custom-fields">
+        <div class="template">
+            <?php echo $this->createSelect($args->collect_mail_tags(), null, 'ignore', ' ') ?>
+            ->
+            <input type="text">
+            <span class="delete">[x]</span>
+        </div>
+        <?php if (!empty($options['custom'])): ?>
+        <?php foreach($options['custom'] as $i => $custom): ?>
+                <div>
+                    <?php echo $this->createSelect($args->collect_mail_tags(), esc_attr($custom['from']), "custom][$i][from", ' ') ?>
+                    ->
+                    <input type="text" name="cf7-benchmark[custom][<?php echo $i ?>][to]" value="<?php echo esc_attr($custom['to']) ?>">
+                    <span class="delete">[x]</span>
+                </div>
+        <?php endforeach; ?>
+        <?php endif; ?>
+        <p class="description"><?php echo __('Map Contact Form 7 Fields to Benchmark Email Contact Fields', 'cf7-benchmark-ext'); ?></p>
+    </dd>
+</dl>
