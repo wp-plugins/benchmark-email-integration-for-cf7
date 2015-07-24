@@ -1,0 +1,9 @@
+{
+  "require": {
+    "lstrojny/fxmlrpc": "*",
+    "egeloen/http-adapter": "^0.7.1"
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}
