@@ -1,5 +1,5 @@
 === Contact Form 7 Benchmark Email Extension ===
-Contributors: SlammedDime
+Contributors: TheFitCoder
 Tags: contact, form, contact form, feedback, email, benchmark
 Requires at least: 4.1
 Tested up to: 4.2.3
